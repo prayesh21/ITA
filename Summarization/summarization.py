@@ -8,9 +8,14 @@ def extract_text_from_pdf(pdf_path):
         text += page.get_text()
     return text
 
-MODEL_PATH = r"model_summary/Facebook-Bert"  # Change this to your model path
-tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH, use_auth_token="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")
-model = AutoModelForSeq2SeqLM.from_pretrained(MODEL_PATH, use_auth_token="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")
+# MODEL_PATH = r"model_summary/Facebook-Bert"  # Change this to your model path
+# tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH, use_auth_token="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")
+# model = AutoModelForSeq2SeqLM.from_pretrained(MODEL_PATH, use_auth_token="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")
+
+model_path = "facebook/bart-large-cnn"  # Replace with your model name
+tokenizer = AutoTokenizer.from_pretrained(model_path)
+model = AutoModelForSeq2SeqLM.from_pretrained(model_path)
+
 
 def summarize_text(text):
     """Summarize the text using the loaded model."""
