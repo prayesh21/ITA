@@ -4,8 +4,14 @@ from nltk.tokenize import sent_tokenize
 import nltk
 from Summarization.summarization import summarize_text
 from QA.qa_system import process_questions
+from nltk.data import find
 
-nltk.download('punkt_tab')
+try:
+    find('tokenizers/punkt_tab.zip')
+    print("punkt_tab resource already downloaded.")
+except LookupError:
+    nltk.download('punkt_tab')
+
 
 # Function to extract text from a PDF file
 def extract_text_from_pdf(uploaded_file):
