@@ -1,5 +1,4 @@
 from transformers import pipeline, AutoModelForQuestionAnswering, AutoTokenizer
-from QA.database import insert_question_answer
 
 # Load the saved model and tokenizer
 model_path = r"model\QA_Model"  # Ensure this path matches where you saved the model
@@ -24,8 +23,5 @@ def process_questions(questions_input, context):
                                  top_k=1
                                  )
             answers.append((question, result['answer']))  # Store tuple of question and answer
-
-            # Insert question and answer into the database
-            insert_question_answer(question, result['answer'])
 
     return answers
