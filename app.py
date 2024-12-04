@@ -1,6 +1,7 @@
 import streamlit as st
 import fitz  # PyMuPDF for PDF text extraction
 from nltk.tokenize import sent_tokenize
+import nltk
 from Summarization.summarization import summarize_text
 from QA.qa_system import process_questions
 
