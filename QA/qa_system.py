@@ -1,10 +1,9 @@
 from transformers import pipeline, AutoModelForQuestionAnswering, AutoTokenizer
 
 # Load the saved model and tokenizer
-model_path = r"model\QA_Model"  # Ensure this path matches where you saved the model
-model = AutoModelForQuestionAnswering.from_pretrained(model_path)
-tokenizer = AutoTokenizer.from_pretrained(model_path)
-
+# model_path = r"model\QA_Model"  # Ensure this path matches where you saved the model
+model = AutoModelForQuestionAnswering.from_pretrained("bert-large-uncased-whole-word-masking-finetuned-squad")
+tokenizer = AutoTokenizer.from_pretrained("bert-large-uncased-whole-word-masking-finetuned-squad")
 # Initialize the question-answering pipeline with the saved model
 qa_pipeline = pipeline("question-answering", model=model, tokenizer=tokenizer)
 
