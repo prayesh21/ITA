@@ -8,7 +8,7 @@ def extract_text_from_pdf(pdf_path):
         text += page.get_text()
     return text
 
-MODEL_PATH = r"model/Facebook-Bert"  # Change this to your model path
+MODEL_PATH = r"model_summary/Facebook-Bert"  # Change this to your model path
 tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
 model = AutoModelForSeq2SeqLM.from_pretrained(MODEL_PATH)
 
